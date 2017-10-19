@@ -1,0 +1,41 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "26.0.0"
+
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+}
+
+//noinspection GroovyAssignabilityCheck
+apply plugin: 'maven-publish'
+//noinspection GroovyAssignabilityCheck
+apply from: '../deploy.gradle'
+
+//./gradlew clean build bintrayUpload -PbintrayUser=BINTRAY_USERNAME -PbintrayKey=BINTRAY_KEY -PdryRun=false
+publish {
+    userOrg = 'kevin'
+    groupId = 'com.kevin'
+    artifactId = project.name
+    version = android.defaultConfig.versionName
+    description = 'RxLocation with Baidu.'
+    website = 'https://github.com/YuYongzhi/RxBaiduLocation'
+    issueTracker = 'https://github.com/YuYongzhi/RxBaiduLocation/issues'
+    repository = 'https://github.com/YuYongzhi/RxBaiduLocation.git'
+}
