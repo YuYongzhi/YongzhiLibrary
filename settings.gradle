@@ -1,1 +1,1 @@
-include ':app', ':lnglat-convert', ':tipview'
+include ':app', ':lnglat-convert', ':tip-view'
