@@ -23,6 +23,7 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
 }
 
+
 //noinspection GroovyAssignabilityCheck
 apply plugin: 'maven-publish'
 //noinspection GroovyAssignabilityCheck
@@ -30,11 +31,11 @@ apply from: '../deploy.gradle'
 
 //./gradlew clean build bintrayUpload -PbintrayUser=BINTRAY_USERNAME -PbintrayKey=BINTRAY_KEY -PdryRun=false
 publish {
-    userOrg = 'kevin'
+    userOrg = 'tipview'
     groupId = 'com.kevin'
     artifactId = project.name
     version = android.defaultConfig.versionName
-    description = 'LngLat 转换.'
+    description = 'TipView.'
     website = 'https://github.com/YuYongzhi/YongzhiLibrary'
     issueTracker = 'https://github.com/YuYongzhi/YongzhiLibrary/issues'
     repository = 'https://github.com/YuYongzhi/YongzhiLibrary.git'
